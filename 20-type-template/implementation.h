@@ -2,6 +2,24 @@
 #include <boost/optional.hpp>
 
 template<typename T>
+struct size_trait
+{
+    static std::size_t size(const T& t)
+    {
+        return !!t;
+    }
+};
+
+template<typename T>
+struct size_trait<boost::optional<T>>
+{
+    static std::size_t size(const boost::optional<T> & t)
+    {
+        return !!t;
+    }
+};
+
+template<typename T>
 class container_wrapper
 {
 public:
@@ -13,13 +31,15 @@ public:
 
     std::size_t size() const
     {
-        return container_.size();
+        return size_trait<T>::size(container_);
     }
 
 private:
     T container_;
 };
 
+
+/*
 template<typename T>
 class container_wrapper<boost::optional<T>>
 {
@@ -37,3 +57,5 @@ public:
 private:
     boost::optional<T> container_;
 };
+*/
+
