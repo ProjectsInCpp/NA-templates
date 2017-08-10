@@ -1,7 +1,7 @@
 #include <catch.hpp>
 
 #include "vector_erase.h"
-/*
+
 TEST_CASE("vector erase", "[vector_erase]")
 {
     std::vector<int> data{ 1, 2, 3, 1, 3, 1, 2 };
@@ -36,5 +36,4 @@ TEST_CASE("vector erase with custom allocator", "[vector_erase]")
     vector_erase(data, 2);
     REQUIRE(data.empty());
 }
-*/
 
