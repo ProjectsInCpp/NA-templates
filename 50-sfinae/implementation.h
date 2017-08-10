@@ -14,6 +14,16 @@ public:
     static const constexpr bool value = std::is_void<decltype(test<T>(0))>::value;
 };
 
+
+
+
+
+
+
+
+
+
+
 template<typename T>
 struct has_member_variable
 {
